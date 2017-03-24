@@ -69,7 +69,6 @@ public class ElectionServlet extends HttpServlet {
 
 			dao.insertCandidates(c);
 
-			// USE THESE TWO LINES AGAIN!!!!!!!!!!!!!!!!!!
 			request.setAttribute("electionToVoteIn", c);
 			getServletContext().getRequestDispatcher("/vote.jsp").forward(request, response);
 

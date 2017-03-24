@@ -9,9 +9,6 @@ public class Election{
 	private int candidate1Vote;
 	private int candidate2Vote;
 	private int candidate3Vote;
-	public int candidate1Votes;
-	public int candidate2Votes;
-	public int candidate3Votes;
 	public int voteTotal;
 
 	public Election(){
@@ -22,6 +19,7 @@ public class Election{
 		this.electionName = eN;
 		this.candidate1 = c1;
 		this.candidate2 = c2;
+		System.out.println("========="+ this.candidate2);
 		this.candidate3 = c3;
 	}
 	
@@ -46,19 +44,29 @@ public class Election{
 		this.candidate2Vote = c2V;
 		this.candidate3Vote = c3V;
 	}
+	
+	public Election(String c1, String c2, String c3, int c1V, int c2V, int c3V, String eName){
+		this.candidate1 = c1;
+		this.candidate2 = c2;
+		this.candidate3 = c3;
+		this.candidate1Vote = c1V;
+		this.candidate2Vote = c2V;
+		this.candidate3Vote = c3V;
+		this.electionName = eName;
+	}
 		
 	public void voteForCandidate1() {
-		this.candidate1Votes++;
+		this.candidate1Vote++;
 		this.voteTotal++;
 	}
 
 	public void voteForCandidate2() {
-		this.candidate2Votes++;
+		this.candidate2Vote++;
 		this.voteTotal++;
 	}
 	
 	public void voteForCandidate3() {
-		this.candidate3Votes++;
+		this.candidate3Vote++;
 		this.voteTotal++;
 	}
 
@@ -118,29 +126,7 @@ public class Election{
 		this.candidate3Vote = candidate3Vote;
 	}
 	
-	public int getCandidate1Votes() {
-		return candidate1Votes;
-	}
 
-	public void setCandidate1Votes(int candidate1Votes) {
-		this.candidate1Votes = candidate1Votes;
-	}
-
-	public int getCandidate2Votes() {
-		return candidate2Votes;
-	}
-
-	public void setCandidate2Votes(int candidate2Votes) {
-		this.candidate2Votes = candidate2Votes;
-	}
-
-	public int getCandidate3Votes() {
-		return candidate3Votes;
-	}
-
-	public void setCandidate3Votes(int candidate3Votes) {
-		this.candidate3Votes = candidate3Votes;
-	}
 
 	public int getVoteTotal() {
 		return voteTotal;

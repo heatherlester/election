@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.CandidateDAO;
 
 /**
- * Servlet implementation class MasterControllerServlet
+ * Servlet implementation class MasterElectionServlet
  */
-@WebServlet("/MasterControllerServlet")
-public class MasterControllerServlet extends HttpServlet {
+@WebServlet("/MasterElectionServlet")
+public class MasterElectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MasterControllerServlet() {
+    public MasterElectionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,13 +39,15 @@ public class MasterControllerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Inside MasterControllerServlet");
+		System.out.println("Inside MasterElectionServlet");
 		
 		CandidateDAO dao = new CandidateDAO();
 
 		String actionToPerform = request.getParameter("doThisToItem");
-		if(actionToPerform.equals("Let's Vote!")){
+		if(actionToPerform.equals("Let's Begin!")){
 			System.out.println("Launch us to candidate screen");
+			ArrayList<String> allElections = dao.getAllElections();
+			request.setAttribute("listOfAllElections", allElections);
 			getServletContext().getRequestDispatcher("/candidateList.jsp").forward(request, response);
 		} 
 	}

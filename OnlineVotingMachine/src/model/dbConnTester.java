@@ -3,8 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 public class dbConnTester {
 
@@ -16,7 +15,7 @@ public class dbConnTester {
 		
 		try {
 			
-			//Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, user, password);
 			System.out.println("Connection made");
 			
